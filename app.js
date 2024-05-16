@@ -8,11 +8,12 @@ const app = express();
 
 // MIDDLEWARES
 app.use(morgan('dev'));
-
 app.use(express.json());
 
+app.use(express.static(`${__dirname}/public`));
+
 app.use((req, res, next) => {
-  console.log('Hello from the middleware');
+  console.log('Hello from the middleware 👋');
   next();
 });
 
@@ -31,8 +32,4 @@ app.use((req, res, next) => {
 app.use('/api/v1/tours', tourRouter);
 app.use('/api/v1/users', userRouter);
 
-// SERVER
-const port = 3000;
-app.listen(port, () => {
-  console.log(`listening on port ${port}...`);
-});
+module.exports = app;
