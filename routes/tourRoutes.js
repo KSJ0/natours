@@ -9,8 +9,6 @@ const tourController = require('../controllers/tourController');
 // } = require('../controllers/tourController');
 const router = express.Router();
 
-// router.param('id', tourController.checkID);
-
 // TOURS ROUTES
 router
   .route('/')
